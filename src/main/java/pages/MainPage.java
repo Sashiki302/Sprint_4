@@ -10,6 +10,9 @@ import java.time.Duration;
 public class MainPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
+    private final By confirmCookies = By.id("rcc-confirm-button");
+    private final By upperButton = By.xpath("//button[@class='Button_Button__ra12g']");
+    private final By lowerButton = By.xpath(".//button[contains(@class, 'Button_Middle')]");
     public static final String URL = "https://qa-scooter.praktikum-services.ru/";
 
     public MainPage(WebDriver driver) {
@@ -24,9 +27,8 @@ public class MainPage {
 
     // принимаем куки
     public void acceptCookies() {
-        By cookieButton = By.id("rcc-confirm-button");
-        if (driver.findElements(cookieButton).size() > 0) {
-            driver.findElement(cookieButton).click();
+            if (driver.findElements(confirmCookies).size() > 0) {
+            driver.findElement(confirmCookies).click();
         }
     }
 
@@ -46,14 +48,14 @@ public class MainPage {
     }
     // нажимаем на кнопку заказа в верхней части страницы
     public void clickUpperOrderButton() {
-        WebElement button = driver.findElement(By.xpath("//button[@class='Button_Button__ra12g']"));
+        WebElement button = driver.findElement(upperButton);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", button);
         button.click();
     }
 
     // нажимаем на кнопку заказа в нижней части страницы
     public void clickLowerOrderButton() {
-        WebElement button = driver.findElement(By.xpath(".//button[contains(@class, 'Button_Middle')]"));
+        WebElement button = driver.findElement(lowerButton);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", button);
         button.click();
     }

@@ -4,17 +4,17 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
-public class mainPageQuestionsTest extends BaseUITest {
+public class MainPageQuestionsTest extends BaseUITest {
 
     private final int text;
     private final String expectedText;
 
-    public mainPageQuestionsTest(int text, String expectedText) {
+    public MainPageQuestionsTest(int text, String expectedText) {
         this.text = text;
         this.expectedText = expectedText;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters (name = "Тестовые данные: {0} {1}")
     public static Object[][] testData() {
         return new Object[][] {
                 {0, "Сутки — 400 рублей. Оплата курьеру — наличными или картой."},

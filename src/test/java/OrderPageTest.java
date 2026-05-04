@@ -5,7 +5,7 @@ import org.junit.runners.Parameterized;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
-public class orderPageTest extends BaseUITest {
+public class OrderPageTest extends BaseUITest {
 
     private final String firstName;
     private final String lastName;
@@ -18,7 +18,7 @@ public class orderPageTest extends BaseUITest {
     private final String comment;
     private final boolean useHeaderButton;
 
-    public orderPageTest(String firstName, String lastName, String address, String metroStation,
+    public OrderPageTest(String firstName, String lastName, String address, String metroStation,
                          String phone, String date, String rentalPeriod, String color,
                          String comment, boolean useHeaderButton) {
         this.firstName = firstName;
@@ -33,8 +33,8 @@ public class orderPageTest extends BaseUITest {
         this.useHeaderButton = useHeaderButton;
     }
 
-    @Parameterized.Parameters
-    public static Object[][] testData() {
+    @Parameterized.Parameters (name = "Тестовые данные: Имя - {0}, Фамилия - {1}, Город - {2}")
+    public static Object[][] testData()  {
         return new Object[][]{
                 {"Тест", "Тестиров", "Москва", "Щукинская", "89991234567", "25.05.2026", "сутки", "black", "Привет!", true},
                 {"Тестировщик", "Тестов", "Ростов", "Ростокино", "89007654321", "30.05.2026", "двое суток", "grey", "Пока?", false},
