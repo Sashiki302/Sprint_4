@@ -13,6 +13,7 @@ public class OrderPage {
     private final By metro = By.xpath(".//input[@placeholder='* Станция метро']");
     private final By phone = By.xpath(".//input[@placeholder='* Телефон: на него позвонит курьер']");
     private final By nextButton = By.xpath(".//button[text()='Далее']");
+    private final By confrimButton = By.xpath("//button[contains(text(),'Да')]");
 
     // локаторы второй страницы
     private final By datePrivoz = By.xpath(".//input[@placeholder='* Когда привезти самокат']");
@@ -54,7 +55,7 @@ public class OrderPage {
     }
     // подтверждаем заказ
     public void confirmClickOrder(){
-driver.findElement(By.xpath("//button[contains(text(),'Да')]")).click();
+driver.findElement(confrimButton).click();
     }
     // проверяем, что появилось окно с сообщением об успешном создании заказа
     public boolean isSuccessDisplayed() {
